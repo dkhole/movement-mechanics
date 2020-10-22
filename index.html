@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css"></style>
     <title>Movement Mechanics</title>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDlf_0DrIPFKSpDEMdorn_MYcbv5p0bS_s&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
   </head>
   <body>
     <div class="nav">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ7Gig0Rk9REHT_uj7z_9OHh-d0qh3kncBqgQ&usqp=CAU">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxEOEBAQEBAWFRAXEhUWFxEVEBUWFRYTFRUWFhUVHRUZHSkgGBolGxYVITEhKikrMC4uGiAzODMxNygtLisBCgoKDg0OGxAQGzIlICUtLS0tLTUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAMsA+AMBEQACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYDBAcBAv/EAEAQAAIBAgIFCQYFAwIHAQAAAAABAgMRBAUGEiExQQcTUVJhcYGRoSIyQnKxwTNiktHwFCOiY+E0Q3OCssLiFf/EABoBAQACAwEAAAAAAAAAAAAAAAABBAIDBQb/xAAwEQEAAgECBQMCBgICAwAAAAAAAQIDBBEFEiExQRMyUWGhFCJScYGRFbEz8CNCwf/aAAwDAQACEQMRAD8A7iAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYq+IhTV5yUV2v8AlzVkzUxxvedhp/8A7dC/v/4S/Yq/5PT7+77SNyhiIVFeElJdjLWPLTJG9J3GU2gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA080xyoQ1t8nsiu39iprNTGDHzefAp9etKpJym7t8X/NiPKZctslua07ofBghkoV5U5KUHZr+eJsxZb4rc1J6i35ZjVXpqW57pLof7HqtJqYz4+aO/lk3C2AAAAAAAAAAAAAAAAAAAAAAAAAADcalXMqMHaVSN+hO/0K19ZgpO02gZsPiIVFeElJdhsx5aZI3pO4ruk9RurGPBQv4tu/0RweMXmcsV+IRKHOQgAATWi9RqpOPBwv4ppfc7HB7z6lq/RMLKeiSAAAAAAAAAAAAAAAAAAAAAAAAACtZ7mblJ0oO0Vsk1xfFdx57iOttNpxUnpHdEoU46E/otVX9yHHZJd25/Y7vBrxtan8snzpRh3eFRbrar71tX1fkYcYwzvXJHbsiUEcRAAJE9ovQd51OFtVfV/Y7fB8U/myT+zKG7nWZOhqKKTbvvvsS7i5r9ZbT7csdZGhQ0jlf24Jrpi7Pye8pYuMW3/PX+kbp3DYiNWKlB3X82PtO1izUy15qTvCWY2gAAAAAAAAAAAAAAAAAAAADHiKmpCUuiLfkrmvLblpNviBRG77XvPFWneZlAQhlwmJlSmpx3r1XFG7BmthvF6pXKdNVqdpR2SinZ71fb5o9balc2La0dJhKs47JqlJvVTnDpS2+KPO6nh2XFO9esI2aHNu9tV36LMpenf9MiQwGTVKrTknCHS1tfci9puG5cs73jaDZZf7eHp9WEV/O9noP/Hp8fxEJVHMcY69RzexbkuiKPLavUTnyc3jwhrFZCSyHFunVUb+zPY128H9vE6PDdROPLFZ7T0TC2nqUgAAAAAAAAAAAAAAAAAAAANXNPwav/Tl9GV9X/w2/YUo8axANzKcLz1WMX7q9qXcuHjsRc0OD1s0RPaOspXM9bCQkCNoAkaeb4fnaM4rfa671tKmtxerhtUUw8ixCB7CWq0+hp+RnSdrRKV+R7aOsJCQAAAAAAAAAAAAAAAAAAADFioa0Jx6YteaNWavNjtH0kUU8XLEIFi0WpezUn0tLwSv9z0HB8e1LXZQnTtAAAACBTs6w3N1pJbn7S8d/rc8pxDD6Wedu09US0SigtfYZVjeYF/R7evZkEgAAAAAAAAAAAAAAAAAAAAiRR8dR5urUj0Sfk9q9Gjx2qx+nmtX6olgK6Fs0djahHtcvrb7HqeFxtp4/lkkzogAAAAK/pVT/Cl8y+jX3OFxmntt/CJQBwkNjL6evVpx/OvJO79EWNLTnzVj6pXc9kkAAAAAAAAAAAAAAAAAAAAAArOk+H1ZxqLdJWfev9voed4vh2vF48iGOOxWzR13oR7HL63PU8LnfTx/LJJnRAAAAAQmlP4dP5/szj8Y/wCOv7//ABEq2edQltGqGtVc+EY+r2L0udXhOLmyzb4hMLSelSAAAAAAAAAAAAAAAAAAAAAAaea4TnqUo/Fvj8y/lvEqazB62Ka+fApjVtj3nkZjadpQsei1W8KkOiSfg1/seg4Pfelq/EphOHZAAAAAQOlU9lKPbJ+Vl9zicZt+WsIlXjgIWzR/C83RTe+XteHD02+J6nhmD08O8956skmdEAAAAAAAAAAAAAAAAAAAAAAAFb0hy/VfPRWx+8uh9Pief4ppNp9WvbyS1cgxHN1knuktXx4euzxK3DM3p5oie09EQtx6lIAAAAKppHW1q2r1YpeL2v6o8zxXJzZuWPCJa+VYLn6iXwrbJ9nR4mjQ6b18sR4juQuSVj1kRtGyXpIAAAAAAAAAAAAAAAAAAAAAAAPmcFJNNXTVmjG1YtG0ip5rlssPLWjfUb2S6H0P9zzOs0dtPbmr28IWPLMWq1OMuO6S/Mt/7ne0eojNii3nyltloAAGPEVlTjKctyVzXkyRjrNp8Ck2lWqbFecpbu1/Y8htfPk6d5lC35bglQgora98n0v9j1Ok00YMfL58/ultloAAAAAAAAAADFia6pxcpbl6tuyS7W2ku8RG6JnaGRBL0AAAAAAAAAAAAPmpTUk4yV096ZjekXry2jeBD08HLCVHOF5UX70d8o9vbY5ddPbSZOanWk94+BMxkmk1tT4nViYmOg9JACAz/EupJYemrvY5JdPBffyOJxLNbJaMGPrPkb2U5YqCu9tR730diLmi0VcFd59wkS+AAAAAAAAAAAYFap47+tx7pQd8PhfaqPhPEyuoQ7VBazf5tXoN015Kbz3n/SvF/UybR2j/AGsppWAAAAAAAAAB8zmopttJLa23ZJd4RvsrOZ6fYDD3XPc7JcKMdf8Az2R9SxTS5beFa+sxV87oKtyrUl7mEqP5qkY/S5vjQW8yrzxGvissMeVdccE7dlf/AOCfwE/q+yP8jH6W5Q5VMM/xMPWj2x1Jf+yMZ0F/EwzjiNPMSmMDp5l1XZz+o+ipCUF+prV9TROky18N1dZht5WDC4ynWjrUqkJx60JqS80zTNZjvCxW9bdpfdbWaahbW6XuXbbj3Gu/NMfl7smHBYGFFO22T96b2ts1YNNTF27z3kbRYAAAAAAAAAAAAU3lA0s/o6f9PQd8XUVlba6cXs1rdZ7orx4bbWmwc881u0KWr1Hpxy17yltDMl/ocJTpP8V+3Ve+9SW/bxtsV+w158nqXmf6btPi9OkRPfynDS3gACNzDP8ACYZ6tbE04S6rmtb9O8zrivbtDVbNjr7pYsHpPgqzUaeKpOT3R10m+5O1ybYcleswiufFadotCXRrbgABCaUaS0cupa9R3qSvqUk/am19Iri/vZG3DhtlnaGjPnrijeXG9IdJsTmEm607U77KMXamujZ8T7X6HXxaemOOkdXFzai+Wes/whtZG9o3ehIQAAD7oVZU5a1OUoS60ZOL81tImInumJmO3RZMr09x+HsnVVWPVqx1v81aXm2Vr6TFbxss01mWnndb8p5UaE7LE0ZUn14PnId9rKS8mVb6G8e2d12nEKT7o2XLLM5w+LV6FeFTsjJay74714oqWx2pP5o2XKZaX9s7t8wbAAAAAAAAABUdNdNKeAi6VJqeKa2R3xp3+Kf2jvfcWtPppyTvPSFPU6qMUbR1lU+TjJZ43Eyx+IbnGE7qUt9Svvv3R2Pv1egs6vJFK+nVU0eKcl/Ut/2XWUcx13oADlenunFSVSeFwk9WEW41K0XaUpLY4xl8MVubW1vs39LS6WNue7lavVzvyUc87eJ0HNeNAW3Q7TWrgZxp1pSqYVuzi23KmutDjZdXyKmo0tbxvXpK5p9XbHO1usO0UakZxjKLTi0mmtzTV00+g5G23SXaid+sPajaTsru2xXtt7+AJVOehNGvVlicfUlWqvetZwpQit0IpO+qu17d9trLMam1Y5adP9qk6Strc+Sd5+z75vJMO7WwUZLp5ly83dkb57fP3Ttp6fDKsxyeeznMG+x8z9xyZ48T92XqaefMfZ9x0fyrEr2KGGl20lBesDH1c1fMno4LeIRuO5NMDU/D5yk/y1NZeU7/AFRtrrckd+rXbQYp7dFXzXkxxVO8sPUhWXVf9ufdtbi/NFmmupPujZUycPvHtndTcdgauHnzdanKnPqyi1ftT3NdqLlL1tG8SpWpak7WjZrmTEAAewk4tSi2pLdJOzXc1uExExtJEzE7wsuU6eY/DWTq87BfDWWs7fPsl5tla+kx38bLWPWZaed1yyvlQw87LEUZ0n1o/wByHpaXoynfQ3j2zuu04hSfdGy2Zbn+ExVuZxFOb6qlaX6HtXkVbYr17wuVzUt2lJ3MGwuAAAR+bZ3hsHHWxFaMOhN3k+6C2vwRnTHa87VhrvlpSN7S5vpNyk1KqdPBRdOG51pW5xr8q3Q79r7joYdFEdb/ANObm18z0x/2qmj+S1cxxCpQvdvWqVXt1Y39qbb3t+rfeWsuSuKm/wDSnhxWy32j+Zd5yvL6eFo06FKNqcI2S+rb4tu7b6WcS9ptbml36UilYrDaMWYBDaYZg8LgcTVi7TVNqL6JzahF+Dkn4G3BXmyRDTqL8mOZhwE7rzwAAEjsnJTmDrYHm5b6NR018jSnHy1mvA4+spy5N/l2tBfmxbT4SGmelEMtpJ21q87qnTvs2b5S/Krrv3d2vBgnLbbw2ajURirv5cczjPMTjZOWIrSkuEL2gu6C2eO/tOvjw0pG0Q4uTNfJO9pRtjY1vQPErO/Hp4j9yOiYy/SfG4e3N4qpbqylrx/TO6Rptp8Vu8N1NRlr2stmU8qVWNliqCmuvSerL9EnZvxRVvoI/wDSVvHxCY98LnhM0y/N6bppwqre6NSNprt1Xt2dZeZTtjyYZ37LtcmLPG3dX8y5LaErvD15031ZpVI/aXqyxTXXj3Rur34fSfbOyo5roDj8Pdqmq0OtSd3b5HaXkmWqazHbv0U76LLTt1VmpBwk4yi4yW+Mk1Jd6e1FqJiY3hVmJidpfIAAB41feSJHBZ7i6FuaxNWKXwqpJx/S9noarYcdu8Nlc2Sva0pajp9mUNn9QpfNSpv6RRqnR4p8N0a3NHlllyiZi/8AmwXdRj9yPwWL6p/HZvmP6R+M0vzCsmp4upbohq0//BI2V02KvarXbU5bd7IWUm25Ntye9t3b73xN0REdIaJmZndv5Hk1bHVVRoRu98pP3YR60nwX14GvLlrjrvLbixWy25au4aM6P0suoqlT2ydnOo17U5dPYuhcPNnGy5bZLby7mHDXFXaEuam4AAVzlBwzq5bikt6gp+FOcZv0izdprcuWJVtXXmwzs4WdxwQAAA63yQYdxwlao1snXer2qMIq/nrLwOVr7b5Nvh2OH12xzPzKi6fY94jMMQ29kJc1FdEYbH/lrPxLulry4o+qhq782WforxYVgAAAAAPYTcWpRbUk7qSbTT6U1tTExExsmJmJ3dB0V5R503GljrzhuVdL24/NFe8u1be85+bRRPXH/ToYNdMdMn9un4XEQqwjUpyUoSV1KLTTT4po50xMTtLqxaJjeGvmeUYfFR1a9GFRcNaO1d0t68GZVvas71ljfHS8bWjdS825LqM7ywtaVN9Sftw7r+8vNlumutHujdRycPrPsnZS810Jx+Fu3QdSK+Oj/cX6Utb0LlNVjv52Usmky08b/sr0lZtPY1vT2NeBYiYlW6x3AAAAB7CLk1FJuT2JJXbfQlxEztG8kRvO0Llo5yd4nEtTxF6FHfZr+7JdkX7nfLb2FPNrK16U6z9l7Dob3626R93Vcnymjg6SpUKahBbXxcn1pSe1s5l72vO9nVx46442rDfMGwAAAPmpBSTi1dNWafFPegTG7hWmWjM8urtJN4eTfNVOFt+o31l6rb027Wnzxkr9XA1OnnFb6eFfLCuASGRZPVx1aNGjG7fvSt7MI8ZSfR2cdxry5a4672bMWK2W21Xe8py6GEoU6FP3IRSXS3xk+1u78Th3tN7TafL0GOkUrFY8OK6fZfLD5hiLr2akudi+mM9r8pay8DsaS8Wxx9HE1dJrln6q8WFYAkcpyHFYz/h6Eprr2Sgv++Vl6mu+alPdLZjw3ye2FqwXJdipq9WtSp9iUqj+y9SrbX1jtC3Xh957zEJOlyUR+LGSb/LQS+sma/x8/pbY4dHm32fNXkoXwYxr5qCf0mhGvnzX7k8Ojxb7IzGcl+LhtpVaVTsblB+TTXqba6+k942arcPyR2nf7KxmmQYvCXdfDzhFfHbWh+uN4+pYpnx37Sq5MOSnuhvaJaV1sumrXnh2/bo32fNHqy9Hx4NYZ9NGWPiWen1NsU/R2zK8xpYulCtRnrU5LY+K6U1wa6Dj2rNZ2l3KXreOarbMWYBp4/KqGJVq9CnU+enGTXc2royre1e0sLY6290K9i+TrL6l3GnOm/8ATqyt5Sul5G+usyx5VraHDPjZF1eSrDv3cTVXeoS+iRtjX3+Iap4dT5ljjyU0uOLqW7KcUT+Pt8I/x1f1S38JyY4GG2cqtTslUUV/gk/U121uSe3RsroMUd95WXK8kw2E/AoQg+so+0++T2vzK9sl7e6VqmKlPbGyRMGwAAAAAABhxeFhWhKnVhGcJb4ySafgyYtNZ3hjasWjaYUrMOS/C1JOVGrUpflupxXdre16lyuuyR36qV+H45neJ2YsJyV4eLTq4ipNdWKjBPsb2vysTbX38RCK8Op5mZXPKsqoYOHN0KcYQ423t9Lk9sn2sp3va872lcx46442rDdMWxE6Q6PUMwpqFeO1XcakXacG97T8tjumbMWW2Od6tObDXLG1lKnyTrW9nGvV6HQTl5qaXoXI187e37qM8N6+77JnKOTjBUGpVNavL/Ua1P0R2PudzTfWZLdI6N+PQ469Z6rfTpqKUYpKKVkkrJLoS4FVciNn2EgAAB443Aq2faBYPF3lGHM1evSSSb/NDc/R9pZxaq9PrCpl0eO/WOkqfl0MZo7XvWi54Gckpzhdw27FO2+E1s2Pfuu9lrV5x6mvT3KdIyaW3X2urUK0akYzg1KMkmpLc01dNHMmNp2l1omJjeGQJAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAB8VqUZxcZxUotWcWk0096ae9CJ26wiYiektHKMrWEUqdNvmL3hTbvzd/ejF9S+1J7rvhZLK95tO892FKRSNo7JExbAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA//Z">
 
       <!-- Hidden checkbox to use 'checked' selector.
            Spans to create the hamburger -->
@@ -21,19 +25,20 @@
         <span></span>
 
         <div id="ham-links">
-          <a>This</a>
-          <a>Is</a>
-          <a>Place</a>
-          <a>Holder</a>
+          <a>Home</a>
+          <a>Physiotherapy</a>
+          <a>Chiropractor</a>
+          <a>Contact</a>
         </div>
 
       </div>
 
       <div class="nav-links">
-        <a>This</a>
-        <a>Is</a>
-        <a>Place</a>
-        <a>Holder</a>
+        <a id="link-1" class="link">Home</a>
+        <a id="link-2" class="link">Physiotherapy</a>
+        <a id="link-3" class="link">Chiropractor</a>
+        <a id="link-4" class="link">Contact</a>
+        <hr>
       </div>
     </div>
 
@@ -109,12 +114,14 @@
       <section id="section-d" class="grid">
         <div class="box">
           <h2 class="content-title">Contact Us</h2>
-          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore voluptas minus odit? Alias, eveniet! Qui dolor doloremque officiis. Libero, commodi!</p>
-          <p>bobo@bobo.com</p>
+          <p>Movement Mechanics Health and Performance</p>
+          <p>Phone: 041515151515</p>
+          <p>Email: bobo@bobo.com</p>
         </div>
         <div class="box">
-          <h2 class="content-title">About Out Company</h2>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, ab? Praesentium expedita qui, repudiandae perferendis sapiente quaerat a dicta distinctio nihil reiciendis voluptates harum eaque officia natus earum, doloribus omnis?</p>
+          <h2 class="content-title">Location</h2>
+          <p>Address</p>
+          <div id="map"></div>
         </div>
       </section>
     </main>
@@ -122,7 +129,9 @@
     <!--Footer-->
     <footer id="main-footer" class="grid">
       <div>Bobo Pty Limited</div>
-      <div>Project By <a>dkhole</a></div>
+      <div>Developed by <a>dkhole</a></div>
     </footer>
+    
   </body>
+  <script src="./script.js"></script>
 </html>

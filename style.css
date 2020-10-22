@@ -14,20 +14,60 @@ body {
   top: 0;
   height: 50px;
   width: 100%;
-  background-color: rgb(23, 44, 56);
+  background-color: white;
 }
 
 .nav img {
   display: inline-block;
-  height: 50px;
-  width: 50px;
+  height: 100%;
+  width: auto;
   position: absolute;
-  left: 0;
+  left: 20px;
 }
 
 .nav-links {
+  position: relative;
   float: right;
   display: none;
+  color: black;
+  height: 100%;
+  width: 45%;
+  font-size: 1.5em;
+}
+
+.nav-links a {
+  width: 25%;
+  cursor: pointer;
+  text-align: left;
+  transition: 0.4s ease-in-out;
+}
+
+.nav-links hr {
+  position: absolute;
+  left: 0;
+  height: 0.17em;
+  width: 65px;
+  margin: 40px 0 0 0;
+  background: tomato;
+  border: none;
+  transition: 0.3s ease-in-out;
+}
+
+.nav-links #link-2:hover ~ hr {
+  margin-left: 25%;
+  height: 0.1em;
+  width: 150px;
+}
+
+.nav-links #link-3:hover ~ hr {
+  margin-left: 50%;
+  width: 130px;
+}
+
+.nav-links #link-4:hover ~ hr {
+  margin-left: 75%;
+  height: 0.1em;
+  width: 85px;
 }
 
 #hamburger {
@@ -46,6 +86,7 @@ body {
   top: 7px;
   opacity: 0; /* hide this */
   z-index: 2; /* and place it over the hamburger */
+  outline: 0; /* check if this gets rid of blue box when clicking. if not try focus property */
 }
 
 #hamburger span {
@@ -55,13 +96,20 @@ body {
   margin-bottom: 5px;
   margin-left: 7px;
   position: relative;
-  background: #cdcdcd;
+  background: #232323;
   border-radius: 3px;
   z-index: 1;
   transform-origin: 4px 0px;
-
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
     opacity 0.55s ease;
+}
+
+#hamburger input:hover ~ span {
+  background: #cdcdcd;
+}
+
+#hamburger input:checked:hover ~ span {
+  background: #cdcdcd;
 }
 
 #hamburger span:first-child {
@@ -110,11 +158,24 @@ body {
   background: #ededed;
   list-style-type: none;
   -webkit-font-smoothing: antialiased;
+
+  display: flex;
+  flex-direction: column;
   /* to stop flickering of text in safari */
 
   transform-origin: 0% 0%;
-  transform: translate(-100%, 0);
+  transform: translate(100%, 0);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+#ham-links a {
+  font-size: 1.5em;
+  cursor: pointer;
+  margin: 20px;
+}
+
+#ham-links a:hover {
+  color: red;
 }
 
 #hamburger input:checked ~ #ham-links {
@@ -188,15 +249,19 @@ section img {
 
 /* Section B */
 
+#section-b {
+  height: 140vh;
+}
+
 #section-b .physio {
-  padding: 2em;
   color: #333;
   background-color: #fff;
+  height: 70vh;
 }
 
 #section-b .chiro {
-  padding: 2em;
   background: #2690d4;
+  height: 70vh;
 }
 
 .chiro p {
@@ -228,6 +293,10 @@ section img {
 
 /* Section D */
 
+#section-d {
+  height: 700px;
+}
+
 #section-d .box {
   padding: 2em;
   color: #fff;
@@ -236,6 +305,10 @@ section img {
 
 #section-d .box:first-child {
   background: #2690d4;
+}
+
+#map {
+  height: 200px;
 }
 
 /* Footer */
@@ -254,10 +327,24 @@ section img {
 
 /* Media Queries */
 
-@media (min-width: 700px) {
+@media (min-width: 1240px) {
+  .nav {
+    height: 75px;
+  }
+
+  .nav-links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  #hamburger {
+    display: none;
+  }
+
   .grid {
     display: grid;
-    grid-template-columns: 1fr repeat(2, minmax(auto, 20em)) 1fr;
+    grid-template-columns: 1fr repeat(2, minmax(auto, 30em)) 1fr;
   }
 
   .content-wrap,
@@ -272,6 +359,10 @@ section img {
     grid-column: span 2;
   }
 
+  #section-c {
+    height: 55vh;
+  }
+
   #section-c ul {
     display: flex;
     justify-content: space-around;
@@ -279,5 +370,33 @@ section img {
 
   #section-c li {
     width: 31%;
+  }
+
+  #landing {
+    min-height: 700px;
+  }
+
+  #landing h1 {
+    padding-top: 275px;
+  }
+
+  #landing .bg-image {
+    height: 700px;
+  }
+
+  #section-b {
+    height: 100vh;
+  }
+
+  #section-b .physio {
+    height: 100vh;
+  }
+
+  #section-b .chiro {
+    height: 100vh;
+  }
+
+  #map {
+    height: 500px;
   }
 }
