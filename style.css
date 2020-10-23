@@ -21,7 +21,7 @@ body {
   position: fixed;
   top: 0;
   height: 70px;
-  width: 100%;
+  width: 100vw;
   background-color: rgba(66, 66, 66, 0.5);
   color: white;
   backdrop-filter: blur(8px);
