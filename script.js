@@ -23,28 +23,30 @@ links.forEach((link) => {
     link.className = 'temp-link';
     const allLinks = document.querySelectorAll('.link');
     allLinks.forEach((ink) => {
-      ink.style.color = 'lightgrey';
+      ink.style.color = 'black';
     });
   });
   link.addEventListener('mouseout', () => {
     const allLinks = document.querySelectorAll('.link');
     allLinks.forEach((ink) => {
-      ink.style.color = 'black';
+      ink.style.color = 'white';
     });
     link.className = 'link';
   });
 });
 
-function onScroll() {
-  const nav = document.getElementById('nav');
+const nav = document.getElementById('nav');
+const logo = document.getElementById('logo-place');
 
+function onScroll() {
   if (document.documentElement.scrollTop > 50) {
     nav.style.boxShadow = '0px 1px 10px black';
     nav.style.height = '60px';
-    console.log(document.documentElement.scrollTop);
+    logo.style.top = '15px';
   } else {
     nav.style.boxShadow = '';
     nav.style.height = '80px';
+    logo.style.top = '27px';
   }
 }
 
