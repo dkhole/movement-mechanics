@@ -23,7 +23,7 @@ links.forEach((link) => {
     link.className = 'temp-link';
     const allLinks = document.querySelectorAll('.link');
     allLinks.forEach((ink) => {
-      ink.style.color = 'grey';
+      ink.style.color = 'lightgrey';
     });
   });
   link.addEventListener('mouseout', () => {
@@ -34,5 +34,20 @@ links.forEach((link) => {
     link.className = 'link';
   });
 });
+
+function onScroll() {
+  const nav = document.getElementById('nav');
+
+  if (document.documentElement.scrollTop > 50) {
+    nav.style.boxShadow = '0px 1px 10px black';
+    nav.style.height = '60px';
+    console.log(document.documentElement.scrollTop);
+  } else {
+    nav.style.boxShadow = '';
+    nav.style.height = '80px';
+  }
+}
+
+window.addEventListener('scroll', onScroll);
 
 console.log('made it?');
