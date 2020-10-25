@@ -303,6 +303,7 @@ section img {
 
 #section-b {
   height: 140vh;
+  font-size: 12.5px;
 }
 
 #section-b h1,
@@ -536,6 +537,7 @@ section img {
 
   #section-b {
     height: 90vh;
+    font-size: 16px;
   }
 
   #section-b .physio {
