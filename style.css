@@ -80,7 +80,7 @@ body {
 }
 
 #link-1 {
-  width: 15%;
+  width: 20%;
 }
 
 #link-2 {
@@ -98,13 +98,13 @@ body {
 }
 
 .nav-links #link-2:hover ~ hr {
-  margin-left: 22.5%;
+  margin-left: 25.5%;
   height: 0.1em;
   width: 125px;
 }
 
 .nav-links #link-3:hover ~ hr {
-  margin-left: 61.5%;
+  margin-left: 63%;
   width: 110px;
 }
 
@@ -314,8 +314,8 @@ section img {
   display: block;
   position: relative;
   top: 45%;
-  left: 10%;
-  width: 375px;
+  left: 15%;
+  width: 150px;
   height: 50px;
   text-align: center;
   line-height: 50px;
@@ -348,7 +348,7 @@ section img {
   text-align: start;
   position: relative;
   top: 25%;
-  left: 10%;
+  left: 15%;
   text-transform: uppercase;
   font-size: 2.25em;
   letter-spacing: 5px;
@@ -359,7 +359,7 @@ section img {
   text-align: start;
   position: relative;
   top: 25%;
-  left: 10%;
+  left: 15%;
   font-size: 1.5em;
   letter-spacing: 3px;
   width: 300px;
@@ -376,7 +376,7 @@ section img {
   text-align: start;
   position: relative;
   top: 30%;
-  left: 10%;
+  left: 15%;
   width: 375px;
 }
 
@@ -543,11 +543,15 @@ section img {
     width: 50vw;
   }
 
-  #section-b-title,
-  #section-b-subtitle,
-  #section-b-text,
+  .section-b-title,
+  .section-b-subtitle,
+  .section-b-text,
   #section-b a {
-    left: 25%;
+    left: 20%;
+  }
+
+  #section-b a {
+    width: 375px;
   }
 
   .physio-image {
