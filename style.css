@@ -314,7 +314,7 @@ section img {
   display: block;
   position: relative;
   top: 45%;
-  left: 15%;
+  left: 10%;
   width: 375px;
   height: 50px;
   text-align: center;
@@ -348,7 +348,7 @@ section img {
   text-align: start;
   position: relative;
   top: 25%;
-  left: 15%;
+  left: 10%;
   text-transform: uppercase;
   font-size: 2.25em;
   letter-spacing: 5px;
@@ -359,7 +359,7 @@ section img {
   text-align: start;
   position: relative;
   top: 25%;
-  left: 15%;
+  left: 10%;
   font-size: 1.5em;
   letter-spacing: 3px;
   width: 300px;
@@ -376,7 +376,7 @@ section img {
   text-align: start;
   position: relative;
   top: 30%;
-  left: 15%;
+  left: 10%;
   width: 375px;
 }
 
@@ -540,6 +540,7 @@ section img {
 
   #section-b .physio {
     height: 90vh;
+    width: 50vw;
   }
 
   #section-b-title,
@@ -550,16 +551,17 @@ section img {
   }
 
   .physio-image {
-    width: 50%;
+    width: 50vw;
     height: 90vh;
   }
 
   #section-b .chiro {
     height: 90vh;
+    width: 50vw;
   }
 
   .chiro-image {
-    width: 50%;
+    width: 50vw;
     height: 90vh;
   }
 
