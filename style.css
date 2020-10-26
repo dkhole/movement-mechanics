@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
 :root {
   --main-heading-font: 'Staatliches', cursive;
-  --main-landing-font: 'Merriweather', serif;
+  --main-landing-font: 'Poppins', sans-serif;
 }
 
 html,
@@ -196,7 +197,6 @@ body {
   height: 100vh;
   width: 100vw;
 
-  padding: 50px;
   padding-top: 125px;
 
   background: #ededed;
@@ -257,8 +257,9 @@ section img {
 #landing {
   min-height: 500px;
   margin: 0;
-  background-color: rgba(51, 51, 51, 0.6);
+  background-color: rgba(0, 0, 0, 0.6);
   color: white;
+  font-family: 'Roboto';
 }
 
 #landing .bg-image {
@@ -274,29 +275,39 @@ section img {
   opacity: 0.7;
 }
 
+#landing .bg-image:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent 0%, black 100%);
+}
+
 #landing h1 {
   margin: 0;
   padding-top: 150px;
-  font-family: var(--main-landing-font);
-  letter-spacing: 3px;
   font-weight: normal;
+  font-family: var(--main-landing-font);
 }
 
 /* Section A */
 
 #section-a {
   background-color: #333;
+  font-family: 'Roboto';
+
   color: #fff;
   height: 300px;
 }
 
 #section-a h2 {
   margin: 0;
-  padding-top: 75px;
-  padding-bottom: 25px;
+  padding-top: 20px;
+  padding-bottom: 15px;
+
   font-family: var(--main-landing-font);
-  font-weight: normal;
-  letter-spacing: 3px;
 }
 
 /* Section B */
@@ -510,6 +521,11 @@ section img {
     grid-column: span 2;
   }
 
+  #section-a h2 {
+    padding-top: 65px;
+    padding-bottom: 25px;
+  }
+
   #section-c {
     height: 55vh;
   }
@@ -524,15 +540,20 @@ section img {
   }
 
   #landing {
-    min-height: 700px;
+    min-height: 100vh;
   }
 
   #landing h1 {
-    padding-top: 275px;
+    padding-top: 40vh;
+    font-size: 50px;
+  }
+
+  #landing p {
+    letter-spacing: 2px;
   }
 
   #landing .bg-image {
-    height: 700px;
+    height: 100vh;
   }
 
   #section-b {
