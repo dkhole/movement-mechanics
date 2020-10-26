@@ -37,16 +37,21 @@ links.forEach((link) => {
 
 const nav = document.getElementById('nav');
 const logo = document.getElementById('logo-place');
+const hamburger = document.getElementById('hamburger');
 
 function onScroll() {
   if (document.documentElement.scrollTop > 50) {
     nav.style.boxShadow = '0px 1px 10px black';
     nav.style.height = '60px';
     logo.style.top = '15px';
+    hamburger.style.paddingTop = '20px';
+    hamburger.children[0].top = '7px';
   } else {
     nav.style.boxShadow = '';
     nav.style.height = '80px';
     logo.style.top = '27px';
+    hamburger.style.paddingTop = '30px';
+    hamburger.children[0].top = '21px';
   }
 }
 
