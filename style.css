@@ -378,7 +378,7 @@ section img {
   position: relative;
   top: 30%;
   left: 15%;
-  width: 375px;
+  width: 300px;
 }
 
 .physio-image {
@@ -478,7 +478,7 @@ section img {
 
 /* Media Queries */
 
-@media (min-width: 1240px) {
+@media (min-width: 1000px) {
   #nav {
     height: 80px;
   }
@@ -553,6 +553,11 @@ section img {
   }
 
   #section-b a {
+    width: 375px;
+    top: 40%;
+  }
+
+  .section-b-text {
     width: 375px;
   }
 
